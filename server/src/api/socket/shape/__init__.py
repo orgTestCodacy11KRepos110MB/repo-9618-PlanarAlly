@@ -28,9 +28,10 @@ from ....models.role import Role
 from ....models.shape.access import has_ownership
 from ....models.utils import get_table, reduce_data_to_model
 from ....state.game import game_state
+from .. import initiative
 from ..constants import GAME_NS
 from ..groups import remove_group_if_empty
-from .. import initiative
+from . import access, options, toggle_composite  # noqa: F401
 from .data_models import (
     AssetRectImageData,
     CircleSizeData,
@@ -47,7 +48,6 @@ from .data_models import (
     TextSizeData,
     TextUpdateData,
 )
-from . import access, options, toggle_composite  # noqa: F401
 
 
 @sio.on("Shape.Add", namespace=GAME_NS)
