@@ -120,7 +120,7 @@ async function chooseTarget(): Promise<void> {
             );
             return;
         case 1:
-            targetLocation = { id: location, spawnUuid: spawnInfo[0]!.uuid };
+            targetLocation = { id: location, spawnUuid: spawnInfo[0]!.uuid as GlobalId };
             break;
         default: {
             const choice = await modals.selectionBox(
@@ -130,7 +130,7 @@ async function chooseTarget(): Promise<void> {
             if (choice === undefined) return;
             const choiceShape = spawnInfo.find((s) => s.name === choice[0]);
             if (choiceShape === undefined) return;
-            targetLocation = { id: location, spawnUuid: choiceShape.uuid };
+            targetLocation = { id: location, spawnUuid: choiceShape.uuid as GlobalId };
             break;
         }
     }

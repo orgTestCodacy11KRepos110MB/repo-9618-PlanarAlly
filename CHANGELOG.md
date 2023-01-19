@@ -44,6 +44,7 @@ tech changes will usually be stripped from release notes for the public
 -   Fake Player: showing DM layer
 -   DM settings: Fix last DM being able to demote themselves to a player
 -   Assets: default stroke colour wrongly set, causing badges to be transparent
+-   No longer sending group info for each member (just once)
 
 ## [2022.3.0] - 2022-12-12
 

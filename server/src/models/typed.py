@@ -1,8 +1,9 @@
 from __future__ import annotations
+
 from typing import TYPE_CHECKING, Any, Dict, Generic, Sequence, Tuple, Type, TypeVar
-from typing_extensions import Self
 
 from peewee import ModelDelete, ModelSelect, ModelUpdate
+from typing_extensions import Self
 
 if TYPE_CHECKING:
     from .base import BaseModel
@@ -61,6 +62,10 @@ class TypedModel:
         index: int
 
         @classmethod
+        def DoesNotExist(cls: Type[T]):
+            pass
+
+        @classmethod
         def create(cls: Type[T], *args, **kwargs) -> T:
             ...
 
@@ -98,4 +103,5 @@ class TypedModel:
 
         @classmethod
         def delete(cls) -> DeleteSequence[Self]:
+            ...
             ...
