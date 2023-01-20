@@ -1,5 +1,7 @@
 from typing import List, Optional
+
 from typing_extensions import Literal, TypedDict
+
 
 # DATA CLASSES FOR TYPE CHECKING
 class PositionTuple(TypedDict):
@@ -44,17 +46,6 @@ class ServerAura(TypedDict):
     value: int
     dim: int
     colour: str
-
-
-class ServerShapeDefaultOwner(TypedDict):
-    edit_access: bool
-    movement_access: bool
-    vision_access: bool
-    shape: str
-
-
-class ServerShapeOwner(ServerShapeDefaultOwner):
-    user: str
 
 
 class ShapeKeys(TypedDict):
@@ -173,5 +164,7 @@ class OptionUpdate(TypedDict):
 
 
 class OptionUpdateList(TypedDict):
+    options: List[OptionUpdate]
+    temporary: bool
     options: List[OptionUpdate]
     temporary: bool
