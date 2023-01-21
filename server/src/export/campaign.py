@@ -28,7 +28,8 @@ from ..models.campaign import (
     PlayerRoom,
     Room,
 )
-from ..models.db import db as ACTIVE_DB, open_db
+from ..models.db import db as ACTIVE_DB
+from ..models.db import open_db
 from ..models.general import Constants
 from ..models.groups import Group
 from ..models.initiative import Initiative
@@ -39,7 +40,6 @@ from ..models.shape import (
     Aura,
     Circle,
     CircularToken,
-    CompositeShapeAssociation,
     Label,
     Line,
     Polygon,
@@ -51,6 +51,7 @@ from ..models.shape import (
     ToggleComposite,
     Tracker,
 )
+from ..models.shape.subtypes import CompositeShapeAssociation
 from ..models.typed import SelectSequence
 from ..models.user import User, UserOptions
 from ..save import SAVE_VERSION, upgrade_save
@@ -875,4 +876,5 @@ class CampaignMigrator:
                     note_data["location"] = self.location_mapping[note_data["location"]]
 
                 with self.to_db.bind_ctx([Note]):
+                    Note.create(**note_data)
                     Note.create(**note_data)
